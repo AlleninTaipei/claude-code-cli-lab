@@ -1,0 +1,45 @@
+{
+    "type": "object",
+    "properties": {
+        "summary": {
+            "type": "string",
+            "description": "整體評估"
+        },
+        "issues": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "severity": {
+                        "type": "string",
+                        "enum": [
+                            "high",
+                            "medium",
+                            "low"
+                        ]
+                    },
+                    "line": {
+                        "type": "integer"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "severity",
+                    "message"
+                ]
+            }
+        },
+        "score": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+        }
+    },
+    "required": [
+        "summary",
+        "issues",
+        "score"
+    ]
+}
